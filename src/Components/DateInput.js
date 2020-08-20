@@ -2,7 +2,15 @@ import React, {Component} from 'react';
 
 class DateInput extends Component {
   // Add a constructor with state
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: null
+    }
+  };
+  handleChange = (event) => {
+      this.setState({date: event.target.value});
+  }
   render() {
     return(
       <li className="cards-item">
@@ -11,11 +19,11 @@ class DateInput extends Component {
             <div className="card-title">Date</div>
             <p className="card-text">
               <div className="input btn-block">
-                <input type="date" className="textInput" />
+                <input type="date" onChange={this.handleChange} className="textInput" />
               </div>
               <div className="output">
                 <label for="dateOutput">State: </label>
-                <span name="dateOutput"></span>
+                <span name="dateOutput">{this.state.date}</span>
               </div>
             </p>
           </div>

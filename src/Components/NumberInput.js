@@ -3,14 +3,35 @@ import React, {Component} from 'react';
 class NumberInput extends Component {
   constructor(props){
     super(props);
+    this.state = {
+     number: null
+    }
+  };
     // Be sure to add a state.
+    handleChange = (event) => {
+   this.setState({number: event.target.value});
   }
-
   render() {
     return(
-      <h1>Replace this JSX with code from App.js</h1>
-    );
+       <li className="NumberInput cards-item">
+            <div className="card">
+              <div className="card-content">
+                <div className="card-title">Number</div>
+                <p className="card-text">
+                  <div className="input btn-block">
+                    <input type="number" onChange={this.handleChange} className="textInput" />
+                  </div>
+                  <div className="output">
+                    <label for="numberOutput">State: </label>
+                    <span name="numberOutput">{this.state.number}</span>
+                   </div>
+               </p>
+           </div>
+        </div>
+      </li>
+    )
   }
 }
+
 
 export default NumberInput;
